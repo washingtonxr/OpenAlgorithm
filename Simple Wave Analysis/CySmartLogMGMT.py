@@ -52,9 +52,10 @@ def Check_file(argv, argv2):
                     for data_part_index in range(int(data_depth/2)):
                         # print(data_part_index)
                         # print(data_line[6*data_part_index + 1] + data_line[6*data_part_index + 2])
-                        data_part_temp = data_line[6*data_part_index + 1] + data_line[6*data_part_index + 2] + data_line[6*data_part_index + 4] + data_line[6*data_part_index + 5]
+                        data_part_temp = data_line[6*data_part_index + 4] + data_line[6*data_part_index + 5] + \
+                                         data_line[6*data_part_index + 1] + data_line[6*data_part_index + 2]
                         data_part_temp2 = int('0x'+data_part_temp, 16)
-                        if(data_part_temp2 > 16384):
+                        if(data_part_temp2 > 16384*2):
                             data_part_temp2 = 0xffff - data_part_temp2 + 1
                             data_part_temp2 = -(data_part_temp2)
                         data_part_temp2 = data_part_temp2*9.8/16384
@@ -63,8 +64,8 @@ def Check_file(argv, argv2):
                         data_raw_axis = data_raw_axis + 1
                         if(data_raw_axis >= 3):
                             data_output = 'Info: ACC:' + str(data_output)
-                            # print(data_output)
-                            Save_log(data_output, argv2)
+                            print(data_output)
+                            # Save_log(data_output, argv2)
                             data_output = ''
                             data_raw_axis = 0
 
