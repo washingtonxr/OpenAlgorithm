@@ -18,7 +18,7 @@ def Save_log(argv, argv2, mode = 0):
     elif(mode == 1):    # Check duplicate.
         # print("Info: Check duplicate and open file.")
         target_file = Datafile_path + Child_path + 'Fixed_' + argv2
-        print(target_file)
+        # print(target_file)
         if os.path.exists(target_file):
             # Remove method.
             os.remove(target_file)
